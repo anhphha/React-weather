@@ -4,6 +4,9 @@ import { Icon } from 'react-icons-kit'
 import { search } from 'react-icons-kit/feather/search'
 import { WeatherViewer } from './components/WeatherViewer'
 
+const URL=`https://dataservice.accuweather.com/locations/v1/cities/search`;
+const API_KEY=`DeehZZONl1Uh8AYYFH9uPwlEuKjC3oGv`;
+
 function App() {
 
   // states
@@ -13,7 +16,7 @@ function App() {
   // city search form
   const fetchCity = (e) =>{
     e.preventDefault();
-    axios.get(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=DeehZZONl1Uh8AYYFH9uPwlEuKjC3oGv&q=${citySearch}`)
+    axios.get(`${URL}?apikey=${API_KEY}&q=${citySearch}`)
     .then((res)=>{
       setCityData(res.data[0]);
       setCitySearch('');

@@ -5,6 +5,7 @@ import moon from '../images/moon.png';
 
  // import ClipLoader from "react-spinners/ClipLoader";
 import { PushSpinner } from "react-spinners-kit";
+const URL_CURRENT=`https://dataservice.accuweather.com/currentconditions/v1/`;
 
 export const WeatherViewer = ({ cityData }) => {
 
@@ -16,7 +17,7 @@ export const WeatherViewer = ({ cityData }) => {
     setLoading(true);
     axios
       .get(
-        `http://dataservice.accuweather.com/currentconditions/v1/${cityData.Key}?apikey=DeehZZONl1Uh8AYYFH9uPwlEuKjC3oGv`
+        `${URL_CURRENT}${cityData.Key}?apikey=DeehZZONl1Uh8AYYFH9uPwlEuKjC3oGv`
       )
       .then((res) => {
         setData(res.data[0]);
