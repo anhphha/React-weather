@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Icon } from "react-icons-kit";
 import { search } from "react-icons-kit/feather/search";
 import { WeatherViewer } from "./components/WeatherViewer";
@@ -12,6 +12,11 @@ const App = () => {
   const [citySearch, setCitySearch] = useState("");
   const [cityData, setCityData] = useState(null);
   console.log(process.env.REACT_APP_WEATHER_URL);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+    });
+  },[]);
   // city search form
   const fetchCity = (e) => {
     e.preventDefault();
